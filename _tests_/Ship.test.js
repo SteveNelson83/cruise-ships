@@ -34,4 +34,9 @@ describe('Ship', () => {
     it('gets added to port on instantiation', () => {
         expect(dover.ships).toContain(ship);
     });
+    it('cant sail further than its itinerary', () => {
+        ship.setSail();
+        ship.dock();
+        expect(() => ship.setSail()).toThrowError('End of itinerary reached');
+    });
 })
